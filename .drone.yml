@@ -7,7 +7,7 @@ steps:
   commands:
   - npm install
   - npm run build
-- name: 
+- name: slack
   image: plugins/slack
   settings:
     webhook: https://hooks.slack.com/services/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
