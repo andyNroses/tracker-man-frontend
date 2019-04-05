@@ -3,21 +3,23 @@ name: default
 
 steps:
 
-# - name: build
-#   image: node
-#   commands:
-#   - npm install
-#   - npm run build
+- name: build
+  image: node
+  commands:
+  - npm install
+  - npm run build
 
 - name: deploy
-  image: appleboy/drone-ssh
+  image: appleboy/drone-scp
   settings:
     username: andynroses
     host: andynroses.me
     ssh_key:
       from_secret: ID_RSA
-    script:
-      - touch totototutu.txt
+    target:
+        - /home/andynroses/andynroses.me/tracker-man.andynroses.me
+    sources:
+        - ./dist
 
 - name: slack
   image: plugins/slack
