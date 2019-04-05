@@ -2,11 +2,22 @@ kind: pipeline
 name: default
 
 steps:
-- name: build
-  image: node
-  commands:
-  - npm install
-  - npm run build
+
+# - name: build
+#   image: node
+#   commands:
+#   - npm install
+#   - npm run build
+
+- name: deploy
+  image: appleboy/drone-ssh
+  settings:
+    host: andynroses.me
+    ssh_key:
+      from_secret: ssh_key
+    script:
+      - touch totototutu.txt
+
 - name: slack
   image: plugins/slack
   settings:
