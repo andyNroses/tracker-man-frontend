@@ -19,9 +19,9 @@ steps:
     key:
       from_secret: ID_RSA
     target:
-        - from_secret PRODUCTION_TARGET_PATH
+        - /home/andynroses/andynroses.me/tracker-man.andynroses.me
     source:
-        - from_secret BUILD_DEPLOY_FILES
+        - ./dist
 
 - name: slack
   image: plugins/slack
