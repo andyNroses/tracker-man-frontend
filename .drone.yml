@@ -12,6 +12,7 @@ steps:
 - name: deploy
   image: appleboy/drone-ssh
   settings:
+    username: andynroses
     host: andynroses.me
     ssh_key:
       from_secret: ssh_key
