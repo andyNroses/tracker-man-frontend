@@ -12,10 +12,8 @@ steps:
 - name: deploy
   image: appleboy/drone-scp
   settings:
-    username: 
-        from_secret PRODUCTION_USER
-    host: 
-        from_secret PRODUCTION_HOST
+    username: andynroses
+    host: andynroses.me
     key:
       from_secret: ID_RSA
     target:
