@@ -26,5 +26,5 @@ steps:
 - name: slack
   image: plugins/slack
   settings:
-    webhook: https://hooks.slack.com/services/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
+    webhook: https://hooks.slack.com/services/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
     channel: tracker-man
