@@ -15,7 +15,7 @@ steps:
     username: andynroses
     host: andynroses.me
     ssh_key:
-      from_secret: ssh_key
+      from_secret: ID_RSA
     script:
       - touch totototutu.txt
 
