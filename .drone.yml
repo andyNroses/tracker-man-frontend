@@ -12,19 +12,21 @@ steps:
 - name: deploy
   image: appleboy/drone-scp
   settings:
-    username: andynroses
-    host: andynroses.me
+    username: 
+        from_secret: PRODUCTION_USER
+    host: 
+        from_secret: PRODUCTION_HOST
     key:
       from_secret: ID_RSA
     target:
-        - /home/andynroses/andynroses.me/tracker-man.andynroses.me
+        - from_secret: PRODUCTION_TARGET_PATH
     source:
-        - ./dist
+        - from_secret: BUILD_DEPLOY_FILES
 
 - name: slack
   image: plugins/slack
   settings:
     webhook: 
-        from_secret SLACK_WEBHOOK
+        from_secret: SLACK_WEBHOOK
     channel: 
-        from_secret SLACK_CHANNEL
+        from_secret: SLACK_CHANNEL
