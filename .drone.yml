@@ -19,9 +19,9 @@ steps:
     key:
       from_secret: ID_RSA
     target:
-        - from_secret: PRODUCTION_TARGET_PATH
+      from_secret: PRODUCTION_TARGET_PATH
     source:
-        - from_secret: BUILD_DEPLOY_FILES
+      from_secret: BUILD_DEPLOY_FILES
 
 - name: slack
   image: plugins/slack
@@ -30,3 +30,7 @@ steps:
         from_secret: SLACK_WEBHOOK
     channel: 
         from_secret: SLACK_CHANNEL
+  when:
+    status:
+    - success
+    - failure
