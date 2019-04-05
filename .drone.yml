@@ -30,7 +30,3 @@ steps:
         from_secret: SLACK_WEBHOOK
     channel: 
         from_secret: SLACK_CHANNEL
-  when:
-    status:
-    - success
-    - failure
