@@ -14,11 +14,11 @@ steps:
   settings:
     username: andynroses
     host: andynroses.me
-    ssh_key:
+    key:
       from_secret: ID_RSA
     target:
         - /home/andynroses/andynroses.me/tracker-man.andynroses.me
-    sources:
+    source:
         - ./dist
 
 - name: slack
