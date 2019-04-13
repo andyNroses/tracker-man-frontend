@@ -1,9 +1,12 @@
 /* Modules */
 import React from 'react';
+import Banner from '../../components/Banner';
 
 const SignIn = () => {
     return (
-        <h1>Sign in!</h1>
+        <React.Fragment>
+            <Banner />
+        </React.Fragment>
     );
 }
 

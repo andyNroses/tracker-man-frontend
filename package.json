@@ -18,12 +18,14 @@
   },
   "homepage": "https://github.com/andyNroses/tracker-man-frontend#readme",
   "dependencies": {
-    "antd": "^3.16.2",
+    "firebase": "^5.9.3",
+    "firebaseui": "^3.5.2",
     "parcel-bundler": "^1.12.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

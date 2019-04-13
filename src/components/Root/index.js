@@ -1,9 +1,6 @@
 /* Modules */
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import styles from './styles';
-import { Layout } from 'antd';
-const { Footer, Sider, Content } = Layout;
 
 /**
  * Maps routes
@@ -23,15 +20,7 @@ const mapRoute = (route) => {
 const Root = ({ routes }) => {
     return (
         <Router>
-            <Layout styles={styles.layoutWrapper}>
-                <Sider>Sider</Sider>
-                <Layout>
-                    <Content>
-                        { routes.map(route => mapRoute(route)) }
-                    </Content>
-                    <Footer styles={styles.footer}>Footer</Footer>
-                </Layout>
-            </Layout>
+            { routes.map(route => mapRoute(route)) }
         </Router>
     );
 };
