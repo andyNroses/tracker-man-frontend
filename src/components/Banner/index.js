@@ -1,6 +1,7 @@
 /* Modules */
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     position: absolute;
@@ -22,11 +23,27 @@ const Title = styled.div`
         font-family: 'Luckiest Guy', cursive;
         font-stretch: expanded;
         text-transform: uppercase;
-        font-size: 60px;
+        font-size: 80px;
         margin: 0;
     }
     p {
         margin: 0;
+    }
+`;
+
+const Links = styled.div`
+    position: absolute;
+    top: 20px;
+    left: ${props => props.position == 'left' ? '30px' : 'none' };
+    right: ${props => props.position == 'right' ? '30px' : 'none' };
+    display: flex;
+    align-items: center;
+    a {
+        text-decoration: none;
+        color: rgba(242, 242, 242, 0.6);
+        margin-left: ${props => props.position == 'left' ? 'none' : '20px' };
+        margin-right: ${props => props.position == 'right' ? 'none' : '20px' };
+        font-size: 18px;
     }
 `;
 
@@ -37,6 +54,14 @@ const Banner = () => {
                 <h1>Tracker-Man</h1>
                 <p>Keep track of your comic books readings!</p>
             </Title>
+            <Links position='left'>
+                <a target="_blank" href='https://www.marvel.com/comics/series'>Marvel Unlimited</a>
+                <Link to='/features'>Features</Link>
+            </Links>
+            <Links position='right'>
+                <Link to='/about'>About</Link>
+                <Link to='/contact'>Contact</Link>
+            </Links>
         </Container>
     );
 }
