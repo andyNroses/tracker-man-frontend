@@ -10,7 +10,7 @@ const Container = styled.div`
     margin: auto;
     height: 50%;
     width: 100%;
-    background-color: ${props => props.theme.primary};
+    background-color: #292929;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,16 +18,20 @@ const Container = styled.div`
 
 const Title = styled.div`
     text-align: center;
-    color: white;
+    color: #F2F2F2;
     h1  {
-        font-family: 'Luckiest Guy', cursive;
+        font-family: 'Passion One';
         font-stretch: expanded;
         text-transform: uppercase;
-        font-size: 80px;
+        font-style: normal;
+        font-size: 90px;
+        font-variant: normal;
         margin: 0;
+        line-height: normal;
     }
     p {
         margin: 0;
+        font-size: 20px;
     }
 `;
 

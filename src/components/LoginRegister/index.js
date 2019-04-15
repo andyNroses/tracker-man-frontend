@@ -7,11 +7,14 @@ import Register from './Register';
 const Container = styled.div`
     width: 400px;
     padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
     background: #F2F2F2;
     box-shadow: 0px 4px 15px rgba(101, 101, 101, 0.25);
     border-radius: 20px;
-    position: relative;
-    top: 350px; bottom: 0;
+    position: absolute;
+    left: 0; right: 0;
+    top: 40%;
     margin: auto;
 `;
 
@@ -21,6 +24,7 @@ const Tabs = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    padding-bottom: 10px;
 `;
 
 const Tab = styled.span`
