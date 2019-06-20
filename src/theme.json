@@ -1,3 +1,7 @@
 {
+    "responsive": {
+        "tablet": "900px",
+        "mobile": "500px"
+    },
     "primary": "#ED6565"
 }
