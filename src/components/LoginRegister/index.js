@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Login from './Login';
 import Register from './Register';
+import bubble from '../../assets/img/bubble.svg';
 
 const Container = styled.div`
 	width: 400px;
 	padding: 30px;
 	background: #ffffff;
+	position: relative;
 	@media only screen and (max-width: ${props =>
 			props.theme.responsive.mobile}) {
 		width: 80%;
@@ -49,9 +51,43 @@ const Tab = styled.span`
 	}
 `;
 
+const Bubble = styled.img`
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	right: -120px;
+	top: -60px;
+	@media only screen and (max-width: ${props =>
+			props.theme.responsive.tablet}) {
+		display: none;
+	}
+`;
+
+const BubbleText = styled.h3`
+	position: absolute;
+	width: 100px;
+	right: -120px;
+	top: -33px;
+	text-align: center;
+	font-size: 13px;
+	color: #292929;
+	opacity: 0.9;
+	cursor: pointer;
+	text-transform: uppercase;
+	user-select: none;
+	@media only screen and (max-width: ${props =>
+			props.theme.responsive.tablet}) {
+		display: none;
+	}
+	-webkit-tap-highlight-color: transparent;
+`;
+
 const LoginRegister = () => {
 	const [active, setActive] = useState('login');
 	const Content = active == 'login' ? Login : Register;
+	const BubbleContent = active == 'login' ? 'register' : 'login';
+	const bubbleClick = () =>
+		active == 'login' ? setActive('register') : setActive('login');
 	return (
 		<Container>
 			<Tabs>
@@ -67,6 +103,8 @@ const LoginRegister = () => {
 				</Tab>
 			</Tabs>
 			<Content />
+			<Bubble src={bubble} />
+			<BubbleText onClick={bubbleClick}>{BubbleContent}?</BubbleText>
 		</Container>
 	);
 };

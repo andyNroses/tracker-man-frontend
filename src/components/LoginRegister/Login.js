@@ -14,7 +14,7 @@ const Login = props => {
 	const onLogin = async () => {
 		try {
 			await Firebase.login(email, password);
-			props.history.replace('/');
+			props.history.replace('/dashboard/library');
 		} catch (error) {
 			Message.error(error.message);
 		}

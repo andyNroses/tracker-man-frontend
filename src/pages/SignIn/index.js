@@ -51,7 +51,7 @@ const Container = styled.div`
 
 const SignIn = props => {
 	if (Firebase.isAuthentified()) {
-		props.history.replace('/');
+		props.history.replace('/dashboard/library');
 		return null;
 	} else {
 		return (

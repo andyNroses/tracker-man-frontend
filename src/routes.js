@@ -1,19 +1,45 @@
 /* Pages */
-import Home from './pages/Home';
-import SignIn from './pages/SignIn';
+import Library from './pages/Library';
+import Add from './pages/Add';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
+import {
+	faBookmark,
+	faPlusCircle,
+	faUser,
+	faCog
+} from '@fortawesome/free-solid-svg-icons';
 
 /* Routes */
 const routes = [
-    {
-        name: 'Home',
-        path: '/',
-        component: Home
-    },
-    {
-        name: 'SignIn',
-        path: '/sign-in',
-        component: SignIn
-    }
+	{
+		name: 'Library',
+		path: '/dashboard/library',
+		component: Library,
+		icon: faBookmark,
+		cacheTop: '15px'
+	},
+	{
+		name: 'Add',
+		path: '/dashboard/add',
+		component: Add,
+		icon: faPlusCircle,
+		cacheTop: '75px'
+	},
+	{
+		name: 'Profile',
+		path: '/dashboard/profile',
+		component: Profile,
+		icon: faUser,
+		cacheTop: '135px'
+	},
+	{
+		name: 'Settings',
+		path: '/dashboard/settings',
+		component: Settings,
+		icon: faCog,
+		cacheTop: '195px'
+	}
 ];
 
 export default routes;

@@ -12,6 +12,7 @@ const Button = styled.div`
 	font-size: 14px;
 	font-weight: bold;
 	cursor: ${props => (props.disabled ? 'initial' : 'pointer')};
+	user-select: none;
 `;
 
 export default Button;
