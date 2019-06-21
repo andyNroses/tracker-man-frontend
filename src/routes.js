@@ -13,28 +13,28 @@ import {
 /* Routes */
 const routes = [
 	{
-		name: 'Library',
+		name: 'library',
 		path: '/dashboard/library',
 		component: Library,
 		icon: faBookmark,
 		cacheTop: '15px'
 	},
 	{
-		name: 'Add',
+		name: 'add',
 		path: '/dashboard/add',
 		component: Add,
 		icon: faPlusCircle,
 		cacheTop: '75px'
 	},
 	{
-		name: 'Profile',
+		name: 'profile',
 		path: '/dashboard/profile',
 		component: Profile,
 		icon: faUser,
 		cacheTop: '135px'
 	},
 	{
-		name: 'Settings',
+		name: 'settings',
 		path: '/dashboard/settings',
 		component: Settings,
 		icon: faCog,

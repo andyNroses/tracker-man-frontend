@@ -8,48 +8,48 @@ import { withRouter } from 'react-router-dom';
 const Container = styled.div`
 	padding-top: 30px;
 	grid-area: navigation;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: 25px;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: repeat(4, 50px);
+	grid-template-areas:
+		'library'
+		'add'
+		'profile'
+		'settings';
+	justify-items: center;
 	color: #f2f2f2;
 	background-color: ${props => props.theme.primary};
-	position: relative;
 	@media only screen and (max-width: ${props =>
 			props.theme.responsive.mobile}) {
-		flex-direction: row;
-		justify-content: center;
+		padding-top: 0;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: 100%;
+		grid-template-areas: 'library add profile settings';
 	}
 `;
 
+const IconWrapper = styled.div`
+	grid-area: ${props => props.area};
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
 const Icon = styled(FontAwesomeIcon)`
-	margin-bottom: 35px;
-	z-index: 15;
+	font-size: 25px;
 	cursor: pointer;
 	user-select: none;
 	-webkit-tap-highlight-color: transparent;
-	@media only screen and (max-width: ${props =>
-			props.theme.responsive.mobile}) {
-		margin-bottom: 0;
-	}
 `;
 
 const DarkCache = styled.div`
 	width: 100%;
-	height: 55px;
 	background-color: #292929;
-	position: absolute;
-	top: ${props => {
+	transition: grid-area 0.2s ease-in-out;
+	grid-area: ${props => {
 		const route = routes.filter(route => route.path == props.active)[0];
-		return route.cacheTop;
+		return route.name;
 	}};
-	transition: top 0.2s ease-in-out;
-	left: 0;
-	z-index: 10;
-	@media only screen and (max-width: ${props =>
-			props.theme.responsive.mobile}) {
-		display: none;
-	}
 `;
 
 const Navigation = props => {
@@ -60,11 +60,9 @@ const Navigation = props => {
 		<Container>
 			<DarkCache active={props.active} />
 			{routes.map(route => (
-				<Icon
-					onClick={() => toPage(route.path)}
-					key={route.path}
-					icon={route.icon}
-				/>
+				<IconWrapper key={route.path} area={route.name}>
+					<Icon onClick={() => toPage(route.path)} icon={route.icon} />
+				</IconWrapper>
 			))}
 		</Container>
 	);
