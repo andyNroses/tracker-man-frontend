@@ -3,39 +3,44 @@ import 'firebase/auth';
 import config from './config';
 
 class Firebase {
-    constructor() {
-        app.initializeApp(config);
-        this.auth = app.auth();
-    }
+	constructor() {
+		app.initializeApp(config);
+		this.auth = app.auth();
+	}
 
-    async register(username, email, password) {
-        await this.auth.createUserWithEmailAndPassword(email, password);
-        return this.auth.currentUser.updateProfile({
-            displayName: username
-        });
-    }
+	async register(username, email, password) {
+		await this.auth.createUserWithEmailAndPassword(email, password);
+		return this.auth.currentUser.updateProfile({
+			displayName: username
+		});
+	}
 
-    login(email, password) {
-        return this.auth.signInWithEmailAndPassword(email, password);
-    }
+	login(email, password) {
+		return this.auth.signInWithEmailAndPassword(email, password);
+	}
 
-    logout() {
-        return this.auth.signOut();
-    }
+	loginFacebook() {
+		var provider = new app.auth.FacebookAuthProvider();
+		return this.auth.signInWithPopup(provider);
+	}
 
-    getCurrentUsername() {
-        return this.auth.currentUser.displayName;
-    }
+	logout() {
+		return this.auth.signOut();
+	}
 
-    isInit() {
-        return new Promise(resolve => {
-            this.auth.onAuthStateChanged(resolve);
-        })
-    }
+	getCurrentUsername() {
+		return this.auth.currentUser.displayName;
+	}
 
-    isAuthentified() {
-        return this.auth.currentUser != null;
-    }
+	isInit() {
+		return new Promise(resolve => {
+			this.auth.onAuthStateChanged(resolve);
+		});
+	}
+
+	isAuthentified() {
+		return this.auth.currentUser != null;
+	}
 }
 
 export default new Firebase();

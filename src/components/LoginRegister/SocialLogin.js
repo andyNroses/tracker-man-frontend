@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
+import Firebase from '../../firebase';
+import Message from '../Message';
+import { withRouter } from 'react-router-dom';
 
 const Container = styled.div`
 	display: grid;
@@ -10,13 +13,24 @@ const Container = styled.div`
 	margin-top: 8px;
 `;
 
-const SocialLogin = () => {
+const SocialLogin = props => {
+	const onFacebookLogin = async () => {
+		try {
+			await Firebase.loginFacebook();
+			props.history.replace('/dashboard/library');
+		} catch (error) {
+			Message.error(error.message);
+		}
+	};
+
 	return (
 		<Container>
-			<Button color="#404040">Facebook</Button>
+			<Button onClick={onFacebookLogin} color="#404040">
+				Facebook
+			</Button>
 			<Button color="#404040">Google</Button>
 		</Container>
 	);
 };
 
-export default SocialLogin;
+export default withRouter(SocialLogin);
