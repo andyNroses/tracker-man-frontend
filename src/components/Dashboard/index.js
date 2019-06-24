@@ -9,15 +9,13 @@ const Container = styled.div`
 	display: grid;
 	width: 100%;
 	height: 100%;
-	grid-template-columns: 70px 1fr;
-	grid-template-rows: 1fr 70px;
+	grid-template-columns: 60px 1fr;
+	grid-template-rows: 1fr 60px;
 	grid-template-areas:
 		'navigation content'
 		'navigation content';
 	@media only screen and (max-width: ${props =>
 			props.theme.responsive.mobile}) {
-		grid-template-columns: 65px 1fr;
-		grid-template-rows: 1fr 60px;
 		grid-template-areas:
 			'content content'
 			'navigation navigation';

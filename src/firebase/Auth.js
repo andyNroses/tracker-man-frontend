@@ -39,7 +39,6 @@ class Auth {
 	}
 
 	getCurrentUsername() {
-		console.log(this.auth.currentUser);
 		return this.auth.currentUser.displayName;
 	}
 
