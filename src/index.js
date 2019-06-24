@@ -31,7 +31,7 @@ const App = () => {
 	const [firebaseInit, setFirebaseInit] = useState(false);
 
 	useEffect(() => {
-		Firebase.isInit().then(value => {
+		Firebase.auth.isInit().then(value => {
 			setFirebaseInit(value);
 		});
 	});

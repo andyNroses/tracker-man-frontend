@@ -50,7 +50,7 @@ const Container = styled.div`
 `;
 
 const SignIn = props => {
-	if (Firebase.isAuthentified()) {
+	if (Firebase.auth.isAuthentified()) {
 		props.history.replace('/dashboard/library');
 		return null;
 	} else {

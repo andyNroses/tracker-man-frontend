@@ -33,7 +33,7 @@ const Content = styled.div`
  * Dashboard
  */
 const Dashboard = props => {
-	if (!Firebase.isAuthentified()) {
+	if (!Firebase.auth.isAuthentified()) {
 		props.history.replace('/sign-in');
 		return null;
 	} else {

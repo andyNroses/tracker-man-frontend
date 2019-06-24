@@ -16,7 +16,16 @@ const Container = styled.div`
 const SocialLogin = props => {
 	const onFacebookLogin = async () => {
 		try {
-			await Firebase.loginFacebook();
+			await Firebase.auth.loginProvider().facebook();
+			props.history.replace('/dashboard/library');
+		} catch (error) {
+			Message.error(error.message);
+		}
+	};
+
+	const onGoogleLogin = async () => {
+		try {
+			await Firebase.auth.loginProvider().google();
 			props.history.replace('/dashboard/library');
 		} catch (error) {
 			Message.error(error.message);
@@ -28,7 +37,9 @@ const SocialLogin = props => {
 			<Button onClick={onFacebookLogin} color="#404040">
 				Facebook
 			</Button>
-			<Button color="#404040">Google</Button>
+			<Button onClick={onGoogleLogin} color="#404040">
+				Google
+			</Button>
 		</Container>
 	);
 };
